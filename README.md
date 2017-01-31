@@ -3,6 +3,11 @@
 This is an Open-Source Library for creating network applications in Java easily using UDP Network Protocol. <br>
 This library "fits" more on Multiplayer Game Development. <br><br>
 <b>Read the LICENSE file before using the plugin!</b>
+<br><br>
+<b>Menu</b>
+<ol>
+<li><a href="#methods">Methods</a></li>
+</ol>
 <hr> 
 # How to use OpenNL
 <hr>
