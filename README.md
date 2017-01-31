@@ -6,6 +6,7 @@ This library "fits" more on Multiplayer Game Development. <br><br>
 <br><br>
 <b>Menu</b>
 <ol>
+<li><a href="#how-to-use-opennl">Installation</a><li>
 <li><a href="#how-to-create-a-server">How to create a Server</a>
   <ul>
   <li><a href="#server-methods">Server Methods</a></li>
@@ -14,7 +15,7 @@ This library "fits" more on Multiplayer Game Development. <br><br>
 </li>
 </ol>
 <hr> 
-# How to use OpenNL
+<h1>How to use OpenNL</h1>
 <hr>
 First you need to import the OpenNL source code to your existing project, or you can export the OpenNL as a JAR file and import to your project. <br>
 <h4>How to import OpenNL JAR file to Eclipse project</h4>
