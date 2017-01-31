@@ -51,10 +51,12 @@ Great! Now you have learned how to create a Server with OpenNL, very easily! <br
 <br><br>
 Here are the public fields and methods of the Server class, that are pretty useful!<br><br>
 <blockquote>
-<code><b>shutdown(message) : void</b></code> Shuts down the Server and sends a disconnection message to all the connected client. Leave empty String if you don't want any message.
+<code><b>shutdown(String message) : void</b></code> Shuts down the Server and sends a disconnection message to all the connected client. Leave empty String if you don't want any message.
 <br><br>
 <code><b>setReceiveBufferSize(int size) : void</b></code> Sets the size of the receive data buffer in bytes. Default size in 1024 bytes.
 <br><br>
 <code><b>getSocket() : DatagramSocket</b></code> Returns the datagram socket that the Server is using.
+<br><br>
+<code><b>sendToAll(String data, SClient except) : void</b></code> Sends data to all connected clients, except the client that you pass in the second parameter. Leave the second parameter null, if you want to send the message to all the connected clients with no exception. (The SClient class will be explained above)
 </blockquote>
 
