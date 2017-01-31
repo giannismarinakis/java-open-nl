@@ -28,7 +28,7 @@ The command for initializing the server is<br>
 
 <blockquote>
 <h4>What I need to fill the parameter "Object caller" with?</h4>
-This parameter is used to call specific library's methods such as: 
+This parameter is used to call specific built-in library's methods such as: 
 <ul>
 <li>onServerInitialized()</li>
 <li>onClientConnect(SClient client)</li>
@@ -39,7 +39,7 @@ For example, when a client connects to our server, the method "onClientConnect" 
 So OpenNL needs to know which script object has these methods registered, so it can find them. <br>
 Passing a null parameter will lead to NullPointerException.
 </blockquote>
-For example, lets say that the script where you are calling the method <i>Server.initialize</i> has some built-in methods. The command for initializing the Server will look like this: <br><br>
+For example, lets say that the script where you are calling the method <i>Server.initialize</i> has a built-in method like <i>onServerInitialized()</i>. The command for initializing the Server will look like this: <br><br>
 <code>Server.initialize(this, 7777);</code>
-<br>
+<br><br>
 Great! Now you have learned how to create a Server with OpenNL, very easily! <br>
