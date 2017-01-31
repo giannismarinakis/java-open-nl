@@ -1,7 +1,8 @@
 # Open Network Library for Java Developers - Version 0.5
 
-This is an Open-Source Library for creating network applications in Java easily. <br>
-This library "fits" more on Multiplayer Game Development. 
+This is an Open-Source Library for creating network applications in Java easily using UDP Network Protocol. <br>
+This library "fits" more on Multiplayer Game Development. <br><br>
+<b>Read the LICENSE file before using the plugin!</b>
 <hr> 
 # How to use OpenNL
 <hr>
@@ -47,5 +48,10 @@ Or, if you want these built-in method(s) to be on a different class object, lets
 <code>Server.initialize(object1, 7777);</code>
 <br><br>
 Here are the public fields and methods of the Server class, that are pretty useful!<br><br>
-<code>setReceiveBufferSize(int size)</code>: Sets the size of the receive data buffer in bytes. Default size in 1024 bytes.
+<code>shutdown(message) : void</code> Shuts down the Server and sends a disconnection message to all the connected client. Leave empty String if you don't want any message.
+<br><br>
+<code>setReceiveBufferSize(int size) : void</code> Sets the size of the receive data buffer in bytes. Default size in 1024 bytes.
+<br><br>
+<code>getSocket() : DatagramSocket</code> Returns the socket that the Server is using.
+
 Great! Now you have learned how to create a Server with OpenNL, very easily! <br>
