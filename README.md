@@ -46,4 +46,6 @@ Or, if you want these built-in method(s) to be on a different class object, lets
 <br><br>
 <code>Server.initialize(object1, 7777);</code>
 <br><br>
+Here are the public fields and methods of the Server class, that are pretty useful!<br><br>
+<code>setReceiveBufferSize(int size)</code>: Sets the size of the receive data buffer in bytes. Default size in 1024 bytes.
 Great! Now you have learned how to create a Server with OpenNL, very easily! <br>
