@@ -61,5 +61,7 @@ Here are the public fields and methods of the Server class, that are pretty usef
 <code><b>sendToAll(String data, SClient except) : void</b></code> Sends data to all connected clients, except the client that you pass in the second parameter. Leave the second parameter null, if you want to send the message to all the connected clients with no exception. (The SClient class will be explained above)
 <br><br>
 <code><b>csend(int clientID, String data) : String</b></code> Sends data to a specific client by the given ID. It returns the result of the send proccess (Empty string "" if success, error as String if failure).
+<h3>Fields</h3>
+<code><b>hosting : boolean</b></code> True if the Server is hosting, false if the Server is not hosting.
 </blockquote>
 
