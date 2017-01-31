@@ -23,7 +23,7 @@ First you need to import the OpenNL source code to your existing project, or you
 </ol>
 Now you should have successfully imported OpenNL to your project.
 <hr>
-# How to create a Server
+<h1>How to create a Server</h1>
 First you have to import the Server script<br>
 <code>import open_nl.server.Server;</code> <br><br>
 The command for initializing the server is<br>
