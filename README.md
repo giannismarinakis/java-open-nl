@@ -52,6 +52,7 @@ Great! Now you have learned how to create a Server with OpenNL, very easily! <br
 Here are the public fields and methods of the Server class, that are pretty useful!<br><br>
 <blockquote>
 <h3>Methods</h3>
+<hr>
 <code><b>shutdown(String message) : void</b></code> Shuts down the Server and sends a disconnection message to all the connected client. Leave empty String if you don't want any message.
 <br><br>
 <code><b>setReceiveBufferSize(int size) : void</b></code> Sets the size of the receive data buffer in bytes. Default size in 1024 bytes.
@@ -62,6 +63,7 @@ Here are the public fields and methods of the Server class, that are pretty usef
 <br><br>
 <code><b>csend(int clientID, String data) : String</b></code> Sends data to a specific client by the given ID. It returns the result of the send proccess (Empty string "" if success, error as String if failure).
 <h3>Fields</h3>
+<hr>
 <code><b>hosting : boolean</b></code> True if the Server is hosting, false if the Server is not hosting.
 </blockquote>
 
