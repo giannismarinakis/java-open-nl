@@ -46,12 +46,15 @@ For example, lets say that the class object where you are calling the method <i>
 Or, if you want these built-in method(s) to be on a different class object, lets say that its named <i>object1</i>, the command for initializing the Server will look like this:
 <br><br>
 <code>Server.initialize(object1, 7777);</code>
+<br>
+Great! Now you have learned how to create a Server with OpenNL, very easily! <br>
 <br><br>
 Here are the public fields and methods of the Server class, that are pretty useful!<br><br>
+<blockquote>
 <code>shutdown(message) : void</code> Shuts down the Server and sends a disconnection message to all the connected client. Leave empty String if you don't want any message.
 <br><br>
 <code>setReceiveBufferSize(int size) : void</code> Sets the size of the receive data buffer in bytes. Default size in 1024 bytes.
 <br><br>
-<code>getSocket() : DatagramSocket</code> Returns the socket that the Server is using.
+<code>getSocket() : DatagramSocket</code> Returns the datagram socket that the Server is using.
+</blockquote>
 
-Great! Now you have learned how to create a Server with OpenNL, very easily! <br>
