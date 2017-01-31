@@ -67,5 +67,9 @@ Here are the public fields and methods of the Server class, that are pretty usef
 <code><b>hosting : boolean</b></code> True if the Server is hosting, false if the Server is not hosting.
 <br><br>
 <code><b>syncClients : boolean</b></code> Set to <code>true</code> if you want each time a client connects or disconnects, to inform all the connected clients about the new connection/disconnection, else <code>false</code>.
+<br><br>
+<code><b>port : int</b></code> The port that the Server is listening to.
+<br><br>
+<code><b>receive_buffer : int</b></code> The size of the receive data buffer in bytes.
 </blockquote>
-
+<hr>
