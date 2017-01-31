@@ -6,7 +6,7 @@ This library "fits" more on Multiplayer Game Development. <br><br>
 <br><br>
 <b>Menu</b>
 <ol>
-<li><a href="#how-to-use-opennl">Installation</a><li>
+<li><a href="#how-to-use-opennl">Installation</a></li>
 <li><a href="#how-to-create-a-server">How to create a Server</a>
   <ul>
   <li><a href="#server-methods">Server Methods</a></li>
