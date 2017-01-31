@@ -39,7 +39,7 @@ For example, when a client connects to our server, the method "onClientConnect" 
 So OpenNL needs to know which script object has these methods registered, so it can find them. <br>
 Passing a null parameter will lead to NullPointerException.
 </blockquote>
-For xample, lets say that the script that you are calling the method Server.initialize has some built-in methods. The command for initializing the Server will look like this: <br><br>
+For example, lets say that the script where you are calling the method <li>Server.initialize</li> has some built-in methods. The command for initializing the Server will look like this: <br><br>
 <code>Server.initialize(this, 7777);</code>
 <br>
 Great! Now you have learned how to create a Server with OpenNL, very easily! <br>
