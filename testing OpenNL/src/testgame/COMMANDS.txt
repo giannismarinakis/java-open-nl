@@ -3,7 +3,7 @@ Press SPACE key to open up the command dialog!
 Commands [spaces between command elements matters!]
 ========================================================
 server [PORT] -> Initializes the server on the specified port. Example: server 7312
-connect [IP] [PORT] -> Connects to a specific host. 
+connect [IP] [PORT] -> Connects to a specific host. Example: connect localhost 7312
 disconnect -> Disconnects from the current connected server.
 ========================================================
 Press the WASD keys to move your "awesome" player! :D
