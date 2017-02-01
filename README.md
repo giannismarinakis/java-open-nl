@@ -16,7 +16,7 @@ This is an Open-Source Library for creating network applications in Java easily 
 <hr> 
 <h1>How to use OpenNL</h1>
 <hr>
-First you need to import the OpenNL source code to your existing project, or you can export the OpenNL as a JAR file and import to your project. <br>
+Import the OpenNL source code to your existing project, OR download the OpenNL JAR file placed in "src/open_nl/OpenNL.jar". <br>
 <h4>How to import OpenNL JAR file to Eclipse project</h4>
 <ol>
 <li>Right click on your project's folder > New > Folder</li>
