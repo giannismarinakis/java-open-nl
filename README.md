@@ -1,8 +1,7 @@
 # Open Network Library for Java Developers - Version 0.5
 
 This is an Open-Source Library for creating network applications in Java easily using UDP Network Protocol. <br>
-This library "fits" more on Multiplayer Game Development. <br><br>
-<b>Read the LICENSE file before using this library!</b>
+<b><u>Read the LICENSE file before using this library!</u></b>
 <br><br>
 <b>Menu</b>
 <ol>
