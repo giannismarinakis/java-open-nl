@@ -29,7 +29,7 @@ Import the OpenNL source code to your existing project, OR download the OpenNL J
 Now you should have successfully imported OpenNL to your project.
 <hr>
 <h1>How to create a Server</h1>
-First you have to import the Server script<br>
+First you have to import the Server class<br>
 <code>import open_nl.server.Server;</code> <br><br>
 The command for initializing the server is<br>
 <code>Server.initialize(Object caller, int port);</code><br>
@@ -47,7 +47,7 @@ This parameter is used to call specific built-in library's methods such as:
 </ul>
 These methods will be called <b><u>automatically</u></b> when they have to! (<u>if they exists</u>)<br>
 For example, when a client connects to our server, the method "onClientConnect" will be invoked automatically. If the method does not exist, this <b>will not</b> lead to any errors or exceptions.<br>
-So OpenNL needs to know which class object has these methods registered, so it can find them. <br>
+So OpenNL needs to know which class object contains these methods, so it can find them. <br>
 Passing a null parameter will lead to NullPointerException.
 </blockquote>
 For example, lets say that the class object where you are calling the method <i>Server.initialize</i> has a built-in method like <i>onServerInitialized()</i>. The command for initializing the Server will look like this: <br><br>
@@ -57,6 +57,8 @@ Or, if you want these built-in method(s) to be on a different class object, lets
 <br><br>
 <code>Server.initialize(object1, 7777);</code>
 <br>
+<br>
+<b>NOTE:</b> <i>When you want to use built-in methods, they have to be registered as above! If you add or remove (if exists) any parameters, OpenNL will not find the method(s).</i><br><br>
 Great! Now you have learned how to create a Server with OpenNL, very easily! <br>
 <br><br>
 Here are the public fields and methods of the Server class, that are pretty useful!<br><br>
@@ -83,4 +85,41 @@ Here are the public fields and methods of the Server class, that are pretty usef
 <code><b>receive_buffer : int</b></code> The size of the receive data buffer in bytes.
 </blockquote>
 <hr>
+<h1>How to join Server</h1>
+First, you have to import the Client class<br>
+
+<code>import open_nl.client.Client;</code>
+<br><br>
+The command for connecting to a Server is<br>
+<code>Client.connectTo(Object callbackScript, String ip, int port);</code><br>
+<br>
+<b>Object callbackScript:</b> You need to fill this parameter with a class object that has library's built-in methods (See more below).<br>
+<b>String ip:</b> The IP Address of the Server you want to connect.
+<br>
+<b>int port:</b> The port of the Server you want to connect.
+
+<blockquote>
+<h4>What I need to fill the parameter "Object callbackScript" with?</h4>
+This parameter is used to call specific built-in library's methods such as: 
+<ul>
+<li>onConnectedToServer()</li>
+<li>onFailedToConnect()</li> 
+<li>onDisconnectedFromServer()</li>
+<li>onDisconnectedFromServer(String disconnectionMessage)</li>
+</ul>
+These methods will be called <b><u>automatically</u></b> when they have to! (<u>if they exists</u>)<br>
+For example, when you connect to a Server, the method "onConnectedToServer()" will be invoked automatically. If the method does not exist, this <b>will not</b> lead to any errors or exceptions.<br>
+So OpenNL needs to know which class object contains these methods, so it can find them. <br>
+Passing a null parameter(for "Object callbackScript") will lead to NullPointerException.
+</blockquote>
+For example, lets say that the class object where you are calling the method <i>Client.connectTo</i> has a built-in method like <i>onConnectedToServer()</i>. The command for connecting to the Server will look like this: <br><br>
+<code>Client.connectTo(this, "localhost", 7777);</code>
+<br><br>
+Or, if you want these built-in method(s) to be on a different class object, lets say that its named <i>object1</i>, the command for connecting to the Server will look like this:
+<br><br>
+<code>Client.connectTo(object1, "localhost", 7777)</code>
+<br>
+<b>NOTE:</b> <i>When you want to use built-in methods, they have to be registered as above! If you add or remove (if exists) any parameters, OpenNL will not find the method(s).</i><br><br>
+Great! Now you have learned how to connect to a Server with OpenNL!! <br>
+
 <b><u>This file is not finished yet!</u></b>
