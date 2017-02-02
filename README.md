@@ -118,8 +118,42 @@ For example, lets say that the class object where you are calling the method <i>
 Or, if you want these built-in method(s) to be on a different class object, lets say that its named <i>object1</i>, the command for connecting to the Server will look like this:
 <br><br>
 <code>Client.connectTo(object1, "localhost", 7777)</code>
-<br>
+<br><br>
 <b>NOTE:</b> <i>When you want to use built-in methods, they have to be registered as above! If you add or remove (if exists) any parameters, OpenNL will not find the method(s).</i><br><br>
 Great! Now you have learned how to connect to a Server with OpenNL!! <br>
+<br>
 
+
+
+Here are the public fields and methods of the Client class, that are pretty useful!<br><br>
+<blockquote>
+<h3>Client Methods</h3>
+<hr>
+<code><b>disconnect() : void</b></code> Disconnects the Client from the connected Server.
+<br><br>
+<code><b>getSocket() : DatagramSocket</b></code> Returns the Client's datagram socket.
+<br><br>
+<code><b>sendDataTo(String ip, int port, byte[] data) : void</b></code> Sends data to the specified address and port, from a byte array.
+<br><br>
+<code><b>sendDataTo(String ip, int port, DatagramPacket packet) : void</b></code> Sends a datagram packet to the specified address and port.
+<br><br>
+<h3>Client Fields</h3>
+
+
+<hr>
+<code><b>isConnected : boolean</b></code> True if the Client is connected to a Server, false if not.
+<br><br>
+<code><b>serverIP : String</b></code> The IP Address of the Server that the Client is connected to.
+<br><br>
+<code><b>serverPort : int</b></code> The Port of the Server that the Client is connected to.
+<br><br>
+<code><b>id : int</b></code> The <b>unique</b> ID of the Client. This ID is generated from the Server only.
+<br><br>
+<code><b>receive_buffer : int</b></code> The size of the receive data buffer in bytes.
+<br><br>
+<code><b>connectTimeout : int</b></code> The maximum time it takes the Client to connect to a Server, in milliseconds. Default is 8000 milliseconds.
+<br><br>
+<code><b>connectedClients : ArrayList(type: open_nl.server.SClient)</b></code> A ArrayList of type SClient, that contains all the connected Clients. This ArrayList is filled <b>only</b> if the Server field <code>Server.syncClients</code> is set to <code>true</code>.
+</blockquote>
+<hr>
 <b><u>This file is not finished yet!</u></b>
