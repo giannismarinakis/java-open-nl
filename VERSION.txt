@@ -1,0 +1,1 @@
+Current Java OpenNL version: 0.5
