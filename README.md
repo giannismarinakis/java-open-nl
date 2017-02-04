@@ -91,7 +91,7 @@ Here are the public fields and methods of the Server class, that are pretty usef
 <code><b>receive_buffer : int</b></code> The size of the receive data buffer in bytes.
 </blockquote>
 <hr>
-<h1>How to a join Server</h1>
+<h1>How to join a Server</h1>
 First, you have to import the Client class<br>
 
 <code>import open_nl.client.Client;</code>
