@@ -1,1 +1,1 @@
-Current Java OpenNL version: 1.0.0 [major.minor.patch]
+Current Java OpenNL version: 1.0.0 [major.minor.patch] 
