@@ -31,7 +31,7 @@ public class Server{
 	public static int receive_buffer = 1024;
 	public static int port;
 	public static boolean hosting = false;
-	//When a client connects / disconnects it informs all the clients, if true
+	//When a client connects / disconnects it informs all the clients, if true..
 	public static boolean syncClients = false;
 	
 	private static DatagramSocket socket;
