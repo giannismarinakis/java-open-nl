@@ -12,6 +12,12 @@ This is an Open-Source Library for creating network applications in Java easily 
   <li><a href="#server-fields">Server Fields</a></li>
   </ul>
 </li>
+<li><a href="#how-to-join-a-server">How to join a Server</a>
+  <ul>
+  <li><a href="#client-methods">Client Methods</a></li>
+  <li><a href="#client-fields">Client Fields</a></li>
+  </ul>
+</li>
 </ol>
 <hr> 
 <h1>How to use OpenNL</h1>
@@ -85,7 +91,7 @@ Here are the public fields and methods of the Server class, that are pretty usef
 <code><b>receive_buffer : int</b></code> The size of the receive data buffer in bytes.
 </blockquote>
 <hr>
-<h1>How to join Server</h1>
+<h1>How to a join Server</h1>
 First, you have to import the Client class<br>
 
 <code>import open_nl.client.Client;</code>
