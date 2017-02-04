@@ -1,5 +1,7 @@
 # Open Network Library for Java Developers
-# Latest Version: v0.01.1
+<br>
+<h2>Latest version: v0.01.1</h2>
+<h2>Version under development: v0.02.1</h2>
  
 This is an Open-Source Library for creating network applications in Java easily using UDP Network Protocol. <br>
 <b><u>Read the LICENSE file before using this library!</u></b>
