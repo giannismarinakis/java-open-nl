@@ -41,7 +41,12 @@ public class SClient {
 			DatagramSocket socket = null;
 			if(Server.hosting) socket = Server.getSocket();
 			else if(Client.isConnected) socket = Client.getSocket();
-
+			
+			int myID = (Server.hosting) ? -1 : Client.id;
+			
+			String d = new String(data, 0, data.length).trim();
+			d = "m#"+myID+"#" + d;
+			data = d.getBytes();
 			if(socket != null){
 				socket.send(new DatagramPacket(data, data.length, InetAddress.getByName(ip), port));
 				return null;

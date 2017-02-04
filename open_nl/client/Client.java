@@ -29,7 +29,8 @@ import java.util.ArrayList;
 import open_nl.common.CallbackScript;
 import open_nl.common.RPC;
 import open_nl.common.Sender;
-import open_nl.server.SClient; 
+import open_nl.server.SClient;
+import open_nl.server.Server; 
 
 public class Client { 
 	public static int receive_buffer = 2048;
@@ -260,7 +261,22 @@ public class Client {
 			}
 			//Call the method
 			callCallerMethodRPC(methodName, objsValues.toArray(), classes.toArray(new Class[0]));
-		} 
+		}else if(data.startsWith("m#")){	//Received message direct message from SClient.send() method.
+			//example: m#1#hello
+			data = data.substring(2);
+			int i = data.indexOf('#');
+			data = data.substring(0, i);
+			int senderID = Integer.parseInt(data);
+			Sender sender;
+			if(senderID != -1){ 
+				sender = new Sender(getClient(senderID));
+				sender.isClient = true;
+			}else{
+				sender = new Sender(null);
+				sender.isServer = true;
+			}
+			callCallerMethod("onMessageReceived", new Object[]{sender, data}, Server.class, String.class);
+		}
 	}
 	
 	//Gets the type of a parameter based on a code that is generated from the RPC class
