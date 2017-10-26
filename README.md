@@ -171,4 +171,5 @@ Here are the public fields and methods of the Client class, that are pretty usef
 <code><b>connectedClients : ArrayList(type: open_nl.server.SClient)</b></code> A ArrayList of type SClient, that contains all the connected Clients. This ArrayList is filled <b>only</b> if the Server field <code>Server.syncClients</code> is set to <code>true</code>.
 </blockquote>
 <hr>
-
+<h1>How to use RPCs</h1>
+<hr>
