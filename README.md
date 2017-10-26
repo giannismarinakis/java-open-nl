@@ -24,6 +24,7 @@ This is an Open-Source Library for creating network applications in Java easily 
 <li><a href="#how-to-use-rpcs">How to use RPCs</a>
  <ul>
  <li><a href="#how-it-works">How it works</a></li>
+ <li><a href="#sending-a-rpc">Sending a RPC</a></li>
  </ul>
 </li>
 </ol>
@@ -194,9 +195,14 @@ RPC stands for "Remote Procedure Call".
  
 <blockquote>
 <b><u>IMPORTANT:</u></b> The RPC class needs to know all the class objects that have atleast one or more RPC methods, so it can access those objects and called the specified method.
-<br>In order to do that, you need to call before you connect to a server or before you start a server this static method from the RPC class:
+<br>In order to do that, you need to call before you connect to a server or before you start a server this static method from the RPC class:<br>
 <br><code><b>enableRPCfor(Object... caller) : void</b></code>
-<br>In the <i>caller</i> parameter you pass the class object(s) that has/have one or more RPC methods.<br>
+<br><br>In the <i>caller</i> parameter you pass the class object(s) that has/have one or more RPC methods.<br>
 For example, if I want my client to receive RPC methods in the same class object I can call the <i>enableRPCfor</i>
  method like this: <b>RPC.enableRPCfor(this);</b></blockquote>
+</blockquote>
+
+<h3>Sending a RPC</h3>
+<blockquote>
+ 
 </blockquote>
