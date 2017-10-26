@@ -21,6 +21,11 @@ This is an Open-Source Library for creating network applications in Java easily 
   <li><a href="#client-fields">Client Fields</a></li>
   </ul>
 </li>
+<li><a href="#how-to-use-rpcs">How to use RPCs</a>
+ <ul>
+ <li><a href="#how-it-works">How it works</a></li>
+ </ul>
+</li>
 </ol>
 <hr> 
 <h1>How to use OpenNL</h1>
@@ -166,4 +171,4 @@ Here are the public fields and methods of the Client class, that are pretty usef
 <code><b>connectedClients : ArrayList(type: open_nl.server.SClient)</b></code> A ArrayList of type SClient, that contains all the connected Clients. This ArrayList is filled <b>only</b> if the Server field <code>Server.syncClients</code> is set to <code>true</code>.
 </blockquote>
 <hr>
-<b><u>This file is not finished yet!</u></b>
+<h1>How to use RPCs</h1>
