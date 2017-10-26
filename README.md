@@ -194,8 +194,9 @@ RPC stands for "Remote Procedure Call".
  
 <blockquote>
 <b><u>IMPORTANT:</u></b> The RPC class needs to know all the class objects that have atleast one or more RPC methods, so it can access those objects and called the specified method.
-<br>In order to do that, you need to call before you connect to a server or before you start a server this method:
- <br><b>RPC.enableRPCfor(Object... caller);</b> in the <i>caller</i> parameter you pass the class object(s) that has/have one or more RPC methods.<br>
+<br>In order to do that, you need to call before you connect to a server or before you start a server this static method from the RPC class:
+ <br><code>enableRPCfor(Object... caller) : void</code>
+<br>In the <i>caller</i> parameter you pass the class object(s) that has/have one or more RPC methods.<br>
 For example, if I want my client to receive RPC methods in the same class object I can call the <i>enableRPCfor</i>
  method like this: RPC.enableRPCfor(this);</blockquote>
 </blockquote>
