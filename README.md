@@ -115,6 +115,7 @@ This parameter is used to call specific built-in library's methods such as:
 <li>onFailedToConnect()</li> 
 <li>onDisconnectedFromServer()</li>
 <li>onDisconnectedFromServer(String disconnectionMessage)</li>
+<li>onMessageReceived(Sender sender, String data)</li>
 </ul>
 These methods will be called <b><u>automatically</u></b> when they have to! (<u>if they exists</u>)<br>
 For example, when you connect to a Server, the method "onConnectedToServer()" will be invoked automatically. If the method does not exist, this <b>will not</b> lead to any errors or exceptions.<br>
