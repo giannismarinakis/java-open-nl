@@ -175,7 +175,8 @@ Here are the public fields and methods of the Client class, that are pretty usef
 <hr>
 <blockquote>
 <h3>How it works</h3>
-RPC stands for "Remote Procedure Call". Its job is to call the same method on one or more remote clients (or Server).
+RPC stands for "Remote Procedure Call". 
+<br>Its job is to call the same method on one or more remote clients (or Server).
 <br>The method's name can be anything, but the parameters of the method are limited to some class types. The first parameter <b>needs</b> to be a class type of "Sender" so the receiver can know who did the RPC. 
 <br><br>Here are the class types that this version of OpenNL supports:
 <ol>
@@ -188,7 +189,13 @@ RPC stands for "Remote Procedure Call". Its job is to call the same method on on
 <li>double
 <li>long
 <li>float
- 
-
 </ol>
+<br>
+ 
+<blockquote>
+<b><u>IMPORTANT:</u></b> The RPC class needs to know all the class objects that have atleast one or more RPC methods, so it can access those objects and called the specified method.
+<br>In order to do that, you need to call before you connect to a server or before you start a server this method:
+<br><b>enableRPCfor(Object... caller);</b> in the caller arguments or pass the class object(s) that has/have one or more RPC methods.<br>
+For example, if I want my client to receive RPC methods in the same class object I can call the <i>enableRPCfor</i>
+ method like this: RPC.enableRPCfor(this);</blockquote>
 </blockquote>
