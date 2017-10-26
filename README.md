@@ -173,3 +173,4 @@ Here are the public fields and methods of the Client class, that are pretty usef
 <hr>
 <h1>How to use RPCs</h1>
 <hr>
+<h3>How it works</h3>
