@@ -222,4 +222,7 @@ And its job is to inform the RPC.send(...) method where the RPC is going to be s
 <br>
 For example, if we pass the argument <i><b>RPCMode.All</b></i> in the RPC.send(...) method, the specified method will be called to everyone (clients & server). 
 <br>With the same reasoning, the argument <i><b>RPCMode.Server</b></i> informs the RPC.send(...) method that the specified method will be called only on the Server and the argument <i><b>RPCMode.Others</b></i> informs the RPC.send(...) method that the specified method will be called to everyone except the one who is calling the RPC.send(...).
+<br><br>
+In the <code>String methodName</code> parameter you pass the name of the method that you want to call. <br>
+In the <code>Object... arguments</code> parameter you pass the arguments of the method that you are going to call. The supported parameter types of an RPC method are mentioned <a href="#how-it-works">here</a>.
 </blockquote>
