@@ -205,7 +205,7 @@ For example, if I want my client to receive RPC methods in the same class object
 <h3>Sending a RPC</h3>
 <blockquote>
 The static method for sending a RPC is:<br><br>
-<code>RPC.send(RPCMode mode, String methodName, Object... arguments) : void</code>
+<code><b>RPC.send(RPCMode mode, String methodName, Object... arguments) : void</b></code>
 <br><br>
 <b>What is the <i>RPCMode</i> parameter?</b>
 <br>
@@ -218,6 +218,8 @@ The RPCMode parameter is a enum that consists from 3 different values: <br>
 </ul>
 </blockquote>
 <br>
-And its job is to inform the RPC.send(...) method where the RPC is addressed.<br>
-For example, if we pass the argument <i>RPCMode.All</i> in the RPC.send(...) method, the specified method will be called to everyone (clients & server). With the same reasoning, the argument <i>RPCMode.Server</i> informs the RPC.send(...) method that the specified method will be called only on the Server and the argument <i>RPCMode.Others</i> informs the RPC.send(...) method that the specified method will be called to everyone except the one who is calling the RPC.send(...).
+And its job is to inform the RPC.send(...) method where the RPC is going to be sent.<br>
+<br>
+For example, if we pass the argument <i><b>RPCMode.All</b></i> in the RPC.send(...) method, the specified method will be called to everyone (clients & server). 
+<br>With the same reasoning, the argument <i><b>RPCMode.Server</b></i> informs the RPC.send(...) method that the specified method will be called only on the Server and the argument <i><b>RPCMode.Others</b></i> informs the RPC.send(...) method that the specified method will be called to everyone except the one who is calling the RPC.send(...).
 </blockquote>
