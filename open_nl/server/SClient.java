@@ -41,11 +41,9 @@ public class SClient {
 			DatagramSocket socket = null;
 			if(Server.hosting) socket = Server.getSocket();
 			else if(Client.isConnected) socket = Client.getSocket();
-			
-			int myID = (Server.hosting) ? -1 : Client.id;
-			
+			 
 			String d = new String(data, 0, data.length).trim();
-			d = "m#"+myID+"#" + d;
+
 			data = d.getBytes();
 			if(socket != null){
 				socket.send(new DatagramPacket(data, data.length, InetAddress.getByName(ip), port));
@@ -57,4 +55,27 @@ public class SClient {
 			return e;
 		}
 	}
+	
+	//Sends data to this specific client and returns the result (failure -> IOException | success -> null)
+		public IOException sendMessage(String data){
+			try {
+				DatagramSocket socket = null;
+				if(Server.hosting) socket = Server.getSocket();
+				else if(Client.isConnected) socket = Client.getSocket();
+				
+				int myID = (Server.hosting) ? -1 : Client.id;
+				String d;
+				byte[] finalData;
+				d = "m#"+myID+"#" + data; 
+				finalData = d.getBytes();
+				if(socket != null){
+					socket.send(new DatagramPacket(finalData, finalData.length, InetAddress.getByName(ip), port));
+					return null;
+				}else{
+					return new IOException("SClient error. Could not get the current socket.");
+				}
+			} catch (IOException e) {
+				return e;
+			}
+		}
 }

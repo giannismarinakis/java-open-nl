@@ -29,8 +29,7 @@ import java.util.ArrayList;
 import open_nl.common.CallbackScript;
 import open_nl.common.RPC;
 import open_nl.common.Sender;
-import open_nl.server.SClient;
-import open_nl.server.Server; 
+import open_nl.server.SClient; 
 
 public class Client { 
 	public static int receive_buffer = 2048;
@@ -265,8 +264,8 @@ public class Client {
 			//example: m#1#hello
 			data = data.substring(2);
 			int i = data.indexOf('#');
-			data = data.substring(0, i);
-			int senderID = Integer.parseInt(data);
+			int senderID = Integer.parseInt(data.substring(0, i));
+			data = data.substring(i+1, data.length());
 			Sender sender;
 			if(senderID != -1){ 
 				sender = new Sender(getClient(senderID));
@@ -275,7 +274,7 @@ public class Client {
 				sender = new Sender(null);
 				sender.isServer = true;
 			}
-			callCallerMethod("onMessageReceived", new Object[]{sender, data}, Server.class, String.class);
+			callCallerMethod("onMessageReceived", new Object[]{sender, data}, Sender.class, String.class);
 		}
 	}
 	

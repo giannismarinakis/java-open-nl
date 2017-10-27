@@ -30,10 +30,9 @@ import open_nl.server.Server;
 //	RPC: https://en.wikipedia.org/wiki/Remote_procedure_call
 //	RMI: https://en.wikipedia.org/wiki/Distributed_object_communication
 //The client packs the parameters and the method name and sends the data to the server. 
-//Then the server receives the incoming data from the client, then the server process the data based on the RPCMode.
+//Then the server receives the incoming data from the client, and processes them based on the RPCMode.
 //RPCModes--------
-//	**All -> Server side: The server executes the method locally, and sends the RPC call to all the clients
-//         Client side: The client executes the method locally.
+//	**All -> Everyone executes the method locally.
 
 //	**Server -> Server side: The server executes the method locally, and it does not send the RPC call to any of it's clients.
 
@@ -71,6 +70,7 @@ public class RPC {
 	}
 	
 	//Sends the RPC
+	@SuppressWarnings("resource")
 	public static void send(RPCMode mode, String methodName, Object... arguments){
 		DatagramSocket socket;
 		String args = "";
@@ -88,21 +88,13 @@ public class RPC {
 		String data = "rpc"+id+"#" + mode + "@" + methodName + "@" + arguments.length + "@" + args;
 		
 		byte[] bdata = data.getBytes();
-		if(Server.hosting){
-			socket = Server.getSocket();
-			try {
-				socket.send(new DatagramPacket(bdata, bdata.length, InetAddress.getByName("localhost"), Server.port));
-			} catch (IOException e) { 
-				e.printStackTrace();
-			}  
-		}else{
-			socket = Client.getSocket();
-			try {
-				socket.send(new DatagramPacket(bdata, bdata.length, InetAddress.getByName(Client.serverIP), Client.serverPort));
-			} catch (IOException e) { 
-				e.printStackTrace();
-			} 
-		}
+		
+		socket = Server.hosting ? Server.getSocket() : Client.getSocket();
+		try {
+			socket.send(new DatagramPacket(bdata, bdata.length, Server.hosting ? InetAddress.getByName("localhost") : InetAddress.getByName(Client.serverIP), Server.hosting ? Server.port : Client.serverPort));
+		} catch (IOException e) { 
+			e.printStackTrace();
+		} 		
 	} 
 	
 	//Converts a variable type to a code 
