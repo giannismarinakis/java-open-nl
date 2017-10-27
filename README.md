@@ -235,4 +235,9 @@ Lets say that we want to call remotely the following method to everyone except o
 We will send the RPC like this:<br>
 <code><b>RPC.send(RPCMode.Others, "rpcMethod", "Hello world", 1234, 73.12f, true);</b></code>
 </blockquote>
+<br><br>
+Now this method will be called to everyone except ourselfs.
+<blockquote>
+ <b><u>NOTE:</u> If you don't use the method <code>RPC.enableRPCfor(Object... caller)</code> and don't pass as argument the <u>class object</u> that contains the method <code>void rpcMethod(...)</code> before you connect the a server or before you start a server, OpenNL will not be able to find the method you want to get called.</b>
+ </blockquote>
 </blockquote>
