@@ -224,5 +224,15 @@ For example, if we pass the argument <i><b>RPCMode.All</b></i> in the RPC.send(.
 <br>With the same reasoning, the argument <i><b>RPCMode.Server</b></i> informs the RPC.send(...) method that the specified method will be called only on the Server and the argument <i><b>RPCMode.Others</b></i> informs the RPC.send(...) method that the specified method will be called to everyone except the one who is calling the RPC.send(...).
 <br><br>
 In the <code>String methodName</code> parameter you pass the name of the method that you want to call. <br>
-In the <code>Object... arguments</code> parameter you pass the arguments of the method that you are going to call. The supported parameter types of an RPC method are mentioned <a href="#how-it-works">here</a>.
+In the <code>Object... arguments</code> parameter you pass the arguments of the method that you are going to call. The supported parameter class types of an RPC method are mentioned <a href="#how-it-works">here</a>.
+<br><br>
+<blockquote>
+Examples<hr>
+Lets say that we want to call remotely the following method to everyone except ourselfs(<u>the method name can be anything you want</u>):
+<code><b>void rpcMethod(Sender sender, String str, int i, float f, boolean b)</b></code>
+ <br>(As I mentionted above, the first parameter of an RPC method <b>must</b> be a Sender class. Then you add the parameters you wish)<br>
+<br>
+We will send the RPC like this:<br>
+<code><b>RPC.send(RPCMode.Others, "rpcMethod", "Hello world", 1234, 73.12f, true);</b></code>
+</blockquote>
 </blockquote>
