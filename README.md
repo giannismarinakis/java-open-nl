@@ -61,7 +61,7 @@ This parameter is used to call specific built-in library's methods such as:
 <li>onClientDisconnect(SClient client)</li>
 </ul>
 These methods will be called <b><u>automatically</u></b> when they have to! (<u>if they exists</u>)<br>
-For example, when a client connects to our server, the method "onClientConnect" will be invoked automatically. If the method does not exist, this <b>will not</b> lead to any errors or exceptions.<br>
+For example, when a client connects to a server, the method "onClientConnect" will be invoked automatically. If the method does not exist, this <b>will not</b> lead to any errors or exceptions.<br>
 So OpenNL needs to know which class object contains these methods, so it can find them. <br>
 Passing a null parameter will lead to NullPointerException.
 </blockquote>
