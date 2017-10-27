@@ -21,8 +21,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-import java.util.ArrayList;
-
+import java.util.ArrayList; 
 import open_nl.common.CallbackScript;
 import open_nl.common.RPC;
 import open_nl.common.Sender; 
@@ -118,8 +117,7 @@ public class Server{
 				//Wait till we receive data and fill the packet with the incoming data
 				socket.receive(packet); 
 				
-				String data = new String(packet.getData(), 0, packet.getData().length).trim();
-				
+				String data = new String(packet.getData(), 0, packet.getData().length).trim(); 
 				analyze(data, packet);
 			}
 			//Close the receiving/sending data for this socket
@@ -134,7 +132,7 @@ public class Server{
 	private static void analyze(String data, DatagramPacket packet){
 		//'c' is sent when the client connects to the server.
 		//The server will store the client to its storage.
-		if(data.equals("c")){ 
+		if(data.equals("c")){  
 			SClient client = new SClient(packet.getAddress().toString().replace("/", ""), packet.getPort(), ++ServerStorage.clientIDCounter);
 			ServerStorage.clients.add(client);
 			//Return to the client that he connected successfully.
@@ -253,7 +251,7 @@ public class Server{
 					//Cut the data for the current parameter, so we can get the next one
 					data = data.substring(i + len + 2);
 				} 
-				
+
 				//Don't execute the method if the Server sent the RPC and it is broadcasted to Others
 				if(clientID != -1 || !to.equals("Others"))
 					callCallerMethodRPC(methodName, objsValues.toArray(), classes.toArray(new Class[0]));
@@ -299,10 +297,10 @@ public class Server{
 	 
 	//Loop through all the objects that have atleast one RPC callback method
 	//and call the specified one, if exists.
-	private static void callCallerMethodRPC(String methodName, Object[] parametersValues, Class<?>... parameters){
+	private static void callCallerMethodRPC(String methodName, Object[] parametersValues, Class<?>... parameters){ 
 		for(CallbackScript cs : RPC.callbackScripts){
-			try {
-				Method method = cs.scriptClass.getDeclaredMethod(methodName, parameters);
+			try { 
+				Method method = cs.scriptClass.getDeclaredMethod(methodName, parameters); 
 				method.setAccessible(true);
 				method.invoke(cs.scriptObject, parametersValues);
 			} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e) { }  
