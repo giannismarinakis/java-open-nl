@@ -25,6 +25,7 @@ This is an Open-Source Library for creating network applications in Java easily 
  <ul>
  <li><a href="#how-it-works">How it works</a></li>
  <li><a href="#sending-a-rpc">Sending a RPC</a></li>
+ <li><a href="#sending-a-rpc-to-specific-group">Sending a RPC to specific Group</a></li>
  </ul>
 </li>
 </ol>
@@ -258,4 +259,13 @@ Now this method will be called to everyone except ourselfs.
 <blockquote>
  <b><u>NOTE:</u> If you don't use the method <code>RPC.enableRPCfor(Object... caller)</code> and don't pass as argument the <u>class object</u> that contains the method <code>void rpcMethod(...)</code> before you connect the a server or before you start a server, OpenNL will not be able to find the method you want to get called.</b>
  </blockquote>
+</blockquote>
+
+<h3>Sending a RPC to specific Group</h3>
+<blockquote>
+From OpenNL version 0.01.3 you can send a RPC to a specific group ID. <br>
+By default everyone's Group ID is set to 0.
+<br>You can change your groupID simple by doing: <code>RPC.groupID = ID;</code>
+<br>The default method <code>RPC.send(RPCMode mode, String methodName, Object... arguments);</code> will send the RPC to group I 0. <br>
+To send a RPC to a specific group ID use the method <code>RPC.send(RPCMode mode, int groupID, String methodName, Object... arguments);</code>
 </blockquote>
