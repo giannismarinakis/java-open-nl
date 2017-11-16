@@ -23,6 +23,7 @@ import java.net.InetAddress;
 import java.util.ArrayList;
 
 import open_nl.client.Client;
+import open_nl.server.SClient;
 import open_nl.server.Server; 
 
 //This class is a combination of the Remote procedure call (RPC) and Remote method invocation (RMI)
@@ -40,7 +41,9 @@ import open_nl.server.Server;
 //			 -> Client side: The client executes the method locally if the RPC call it not sent by it's self.
 
 public class RPC {
-	public static ArrayList<CallbackScript> callbackScripts = new ArrayList<CallbackScript>();
+	public static int groupID = 0;
+	
+	private static ArrayList<CallbackScript> callbackScripts = new ArrayList<CallbackScript>();
 	
 	//Enables the object passed to receive RPC calls
 	public static void enableRPCfor(Object... caller){
@@ -57,6 +60,10 @@ public class RPC {
 		callbackScripts.clear();
 	}
 	
+	public static ArrayList<CallbackScript> getCallbackScripts(){
+		return callbackScripts;
+	}
+	
 	//Disables the object passed from receiving RPC calls
 	public static void removeRPCfor(Object caller){
 		CallbackScript toRemove = null;
@@ -69,9 +76,28 @@ public class RPC {
 		callbackScripts.remove(toRemove);
 	}
 	
-	//Sends the RPC
-	@SuppressWarnings("resource")
+	//Sends the RPC with RPCMode
 	public static void send(RPCMode mode, String methodName, Object... arguments){
+		sendRPC(mode, 0, null, null, methodName, arguments);
+	} 
+	
+	//Sends the RPC with RPCMode and Group ID
+	public static void send(RPCMode mode, int groupID, String methodName, Object... arguments){
+		sendRPC(mode, groupID, null, null, methodName, arguments);
+	}
+	
+	//Sends the RPC with Sender
+	public static void send(Sender sender, String methodName, Object... arguments){
+		sendRPC(null, 0, sender, null, methodName, arguments);
+	} 
+	
+	//Sends the RPC with SClient
+	public static void send(SClient client, String methodName, Object... arguments){
+		sendRPC(null, 0, null, client, methodName, arguments);
+	} 
+	
+	@SuppressWarnings("resource")
+	private static void sendRPC(RPCMode mode, int groupID, Sender sender, SClient client, String methodName, Object... arguments) {
 		DatagramSocket socket;
 		String args = "";
 		//Converts the passed arguments to String
@@ -82,20 +108,33 @@ public class RPC {
 			args += str.length() + "." + typecode + str; 
 		}
 		//Get the current ID, -1 for Server.
-		int id = Client.isConnected ? Client.id : -1;
+		int id = Client.isConnected() ? Client.getID() : -1;
 	
 		//The final data for the RPC
-		String data = "rpc"+id+"#" + mode + "@" + methodName + "@" + arguments.length + "@" + args;
+		String data = "";
+		
+		if(sender == null && client == null) {
+			data = "rpc"+id+"#" + mode + "#"+groupID+"@" + methodName + "@" + arguments.length + "@" + args;
+		}else {
+			int i_d;
+			
+			if(sender != null)
+				i_d = sender.isServer ? -1 : sender.getClient().getID();
+			else 
+				i_d = client.getID();
+			
+			data = "rpc"+id+"#id." + i_d + "#"+groupID+"@" + methodName + "@" + arguments.length + "@" + args;
+		}
 		
 		byte[] bdata = data.getBytes();
 		
-		socket = Server.hosting ? Server.getSocket() : Client.getSocket();
+		socket = Server.isHosting() ? Server.getSocket() : Client.getSocket();
 		try {
-			socket.send(new DatagramPacket(bdata, bdata.length, Server.hosting ? InetAddress.getByName("localhost") : InetAddress.getByName(Client.serverIP), Server.hosting ? Server.port : Client.serverPort));
+			socket.send(new DatagramPacket(bdata, bdata.length, Server.isHosting() ? InetAddress.getByName("localhost") : InetAddress.getByName(Client.getServerIP()), Server.isHosting() ? Server.getPort() : Client.getServerPort()));
 		} catch (IOException e) { 
 			e.printStackTrace();
 		} 		
-	} 
+	}
 	
 	//Converts a variable type to a code 
 	private static int getTypeCode(Class<? extends Object> c){
