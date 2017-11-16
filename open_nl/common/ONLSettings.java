@@ -13,33 +13,34 @@
 	
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
-package open_nl.server;
- 
+*/ 
 
-//This class stores data for the server 
-public class ServerStorage {
-	//public static ArrayList<SClient> clients = new ArrayList<SClient>();
-	public static SClient[] clients;
-	public static int clientIDCounter = 0;
-	
-	public static int addClient(SClient client) {
-		for(int i = 0; i < clients.length; i++) {
-			if(clients[i] == null) {
-				clients[i] = client;
-				return i;
-			}
+package open_nl.common;
+
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.swing.JFrame;
+
+import open_nl.client.Client;
+import open_nl.server.Server;
+
+public class ONLSettings {
+	public static void onJFrameClose_Disconnect(JFrame frame) {
+		if(frame != null) {
+			frame.addWindowListener(new WindowAdapter() {
+				public void windowClosing(WindowEvent e) {
+					if(Server.isHosting() || Client.isConnected()) {
+						if(Server.isHosting()) {
+							Server.shutdown("");
+						}else {
+							Client.disconnect();
+						}
+					}
+				}
+			});
+		}else {
+			System.out.println("Can't add Window Event on a null JFrame.");
 		}
-		return -1;
-		
 	}
-	
-	public static void removeClient(SClient client) {
-		for(int i = 0; i < clients.length; i++) {
-			if(clients[i] == client) {
-				clients[i] = null;
-				break;
-			}
-		}
-	}
-} 
+}
