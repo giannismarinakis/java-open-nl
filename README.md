@@ -220,6 +220,24 @@ The RPCMode parameter is a enum that consists from 3 different values: <br>
 <br>
 And its job is to inform the RPC.send(...) method where the RPC is going to be sent.<br>
 <br>
+You can also send a RPC directly to:
+<ul>
+<br>
+  <li>Sender<br>
+    <code><b>RPC.send(Sender sender, String methodName, Object... arguments) : void</b></code>
+    <br>
+  </li>
+  
+   <li>Client<br>
+    <code><b>RPC.send(SClient client, String methodName, Object... arguments) : void</b></code>
+    <br>
+  </li>
+  
+   <li>RPCMode and Group ID<br>
+    <code><b>RPC.send(RPCMode mode, int groupID, String methodName, Object... arguments) : void</b></code>
+    <br>
+  </li>
+</ul>
 For example, if we pass the argument <i><b>RPCMode.All</b></i> in the RPC.send(...) method, the specified method will be called to everyone (clients & server). 
 <br>With the same reasoning, the argument <i><b>RPCMode.Server</b></i> informs the RPC.send(...) method that the specified method will be called only on the Server and the argument <i><b>RPCMode.Others</b></i> informs the RPC.send(...) method that the specified method will be called to everyone except the one who is calling the RPC.send(...).
 <br><br>
