@@ -45,6 +45,8 @@ public class RPC {
 	
 	private static ArrayList<CallbackScript> callbackScripts = new ArrayList<CallbackScript>();
 	
+	private RPC() {}
+	
 	//Enables the object passed to receive RPC calls
 	public static void enableRPCfor(Object... caller){
 		for (Object object : caller) {
