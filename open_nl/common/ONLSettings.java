@@ -26,6 +26,8 @@ import open_nl.client.Client;
 import open_nl.server.Server;
 
 public class ONLSettings {
+	private ONLSettings() {}
+	
 	public static void onJFrameClose_Disconnect(JFrame frame) {
 		if(frame != null) {
 			frame.addWindowListener(new WindowAdapter() {
