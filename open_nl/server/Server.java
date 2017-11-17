@@ -41,6 +41,8 @@ public class Server{
 	private static ArrayList<Object> objsValues; 
 	private static int maxConnections; 
 	
+	private Server() {}
+	
 	public static void initialize(Object caller, int port, int maxConnections){  
 		Server.maxConnections = maxConnections;
 		//Get the name of the class that called the initialize method
