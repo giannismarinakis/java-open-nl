@@ -23,6 +23,8 @@ public class ServerStorage {
 	public static SClient[] clients;
 	public static int clientIDCounter = 0;
 	
+	private ServerStorage() {}
+	
 	public static int addClient(SClient client) {
 		for(int i = 0; i < clients.length; i++) {
 			if(clients[i] == null) {
