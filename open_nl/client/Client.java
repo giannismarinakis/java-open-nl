@@ -55,6 +55,8 @@ public class Client {
 	private static int serverMaxConnections = -1;
 	private static boolean connecting = false, disconnecting = false;
 	
+	private Client() {}
+	
 	//Connects to a specific server
 	public static void connectTo(Object callbackScript, String ip, int port){
 		if(!Client.connecting) {
