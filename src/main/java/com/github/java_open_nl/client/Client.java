@@ -14,11 +14,11 @@
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */ 
-package open_nl.client;
+package com.github.java_open_nl.client;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method; 
+import java.lang.reflect.Method;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -26,11 +26,11 @@ import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 
-import open_nl.common.CallbackScript;
-import open_nl.common.RPC;
-import open_nl.common.Sender;
-import open_nl.server.SClient;
-import open_nl.server.Server; 
+import com.github.java_open_nl.common.CallbackScript;
+import com.github.java_open_nl.common.RPC;
+import com.github.java_open_nl.common.Sender;
+import com.github.java_open_nl.server.SClient;
+import com.github.java_open_nl.server.Server; 
 
 public class Client { 
 	private static int receive_buffer = 2048;

@@ -14,7 +14,7 @@
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-package open_nl.server;
+package com.github.java_open_nl.server;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -22,9 +22,10 @@ import java.lang.reflect.Method;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.util.ArrayList;
-import open_nl.common.CallbackScript;
-import open_nl.common.RPC;
-import open_nl.common.Sender; 
+
+import com.github.java_open_nl.common.CallbackScript;
+import com.github.java_open_nl.common.RPC;
+import com.github.java_open_nl.common.Sender; 
 
 public class Server{ 
 	private static int receive_buffer = 1024;

@@ -14,15 +14,15 @@
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-package open_nl.server;
+package com.github.java_open_nl.server;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-import java.net.InetAddress; 
+import java.net.InetAddress;
 
-import open_nl.client.Client;
-
+import com.github.java_open_nl.client.Client; 
+ 
 //This class is used for storing information about a client connection
 //It is used from both server and client side
 public class SClient {

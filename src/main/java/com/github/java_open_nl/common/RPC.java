@@ -14,7 +14,7 @@
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-package open_nl.common;
+package com.github.java_open_nl.common;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -22,9 +22,10 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.util.ArrayList;
 
-import open_nl.client.Client;
-import open_nl.server.SClient;
-import open_nl.server.Server; 
+import com.github.java_open_nl.client.Client;
+import com.github.java_open_nl.server.SClient;
+import com.github.java_open_nl.server.Server;
+  
 
 //This class is a combination of the Remote procedure call (RPC) and Remote method invocation (RMI)
 //More here: 

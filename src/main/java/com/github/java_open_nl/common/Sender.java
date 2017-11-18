@@ -14,8 +14,19 @@
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-package open_nl.common;
+package com.github.java_open_nl.common;
 
-public enum RPCMode {
-	All, Server, Others;
+import com.github.java_open_nl.server.SClient;
+
+public class Sender {
+	public boolean isClient, isServer;
+	private SClient client;
+	
+	public Sender(SClient client){
+		this.client = client;
+	}
+	
+	public SClient getClient(){
+		return client;
+	}
 }

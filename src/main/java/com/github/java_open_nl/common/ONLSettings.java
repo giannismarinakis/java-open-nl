@@ -15,16 +15,16 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */ 
 
-package open_nl.common;
+package com.github.java_open_nl.common;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
 
-import open_nl.client.Client;
-import open_nl.server.Server;
-
+import com.github.java_open_nl.client.Client;
+import com.github.java_open_nl.server.Server;
+ 
 public class ONLSettings {
 	private ONLSettings() {}
 	

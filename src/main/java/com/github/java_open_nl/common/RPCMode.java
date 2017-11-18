@@ -14,34 +14,8 @@
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-package open_nl.server;
- 
+package com.github.java_open_nl.common;
 
-//This class stores data for the server 
-public class ServerStorage {
-	//public static ArrayList<SClient> clients = new ArrayList<SClient>();
-	public static SClient[] clients;
-	public static int clientIDCounter = 0;
-	
-	private ServerStorage() {}
-	
-	public static int addClient(SClient client) {
-		for(int i = 0; i < clients.length; i++) {
-			if(clients[i] == null) {
-				clients[i] = client;
-				return i;
-			}
-		}
-		return -1;
-		
-	}
-	
-	public static void removeClient(SClient client) {
-		for(int i = 0; i < clients.length; i++) {
-			if(clients[i] == client) {
-				clients[i] = null;
-				break;
-			}
-		}
-	}
-} 
+public enum RPCMode {
+	All, Server, Others;
+}

@@ -14,25 +14,32 @@
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-package open_nl.common;
+package com.github.java_open_nl.server;
+ 
 
-//This class is used to store a script's object that needs to receive incoming RPC calls
-public class CallbackScript{
-	public Object scriptObject;
-	public Class<?> scriptClass;
-
-	public CallbackScript(Object caller){
-		try {
-			String callerClassName = caller.getClass().getName();
-
-			scriptObject = caller;
-			try {
-				scriptClass = Class.forName(callerClassName);
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
+//This class stores data for the server 
+public class ServerStorage {
+	public static SClient[] clients;
+	public static int clientIDCounter = 0;
+	
+	private ServerStorage() {}
+	
+	public static int addClient(SClient client) {
+		for(int i = 0; i < clients.length; i++) {
+			if(clients[i] == null) {
+				clients[i] = client;
+				return i;
 			}
-		} catch (NullPointerException e) {
-			System.out.println("Error while enabling an RPC object. Object passed cannot be null (NullPointerException).");
+		}
+		return -1;		
+	}
+	
+	public static void removeClient(SClient client) {
+		for(int i = 0; i < clients.length; i++) {
+			if(clients[i] == client) {
+				clients[i] = null;
+				break;
+			}
 		}
 	}
 } 
